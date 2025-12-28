@@ -18,8 +18,9 @@ const statPath = async (path) => {
 }
 
 const readPath = async (path) => {
-  // FIXME: What about binary files? how utf-8 encoding affects them?
-  const content = await fs.readFileAsync(path, 'utf-8')
+  // If no encoding is specified (fs.readFileAsync(...)), the data is returned as a <Buffer> object.
+  // Otherwise, the data will be a string.
+  const content = await fs.readFileAsync(path)
   console.log(`readPath: ${path}`)
   return [path, content]
 }
