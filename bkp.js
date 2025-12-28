@@ -72,8 +72,8 @@ const findNew = async (rootDir, pathHashPairs) => {
   existingFiles.forEach(existingFile => {
     const stripped = path.basename(existingFile).replace(/\.bck$/, '')
     const backupPath = hashToPath[stripped]
-    if (backupPath !== null) {
-      console.log(`WARN: Ignoring backup ${backupPath} bacause it is already backup as ${existingFile}`)
+    if (backupPath != null) {
+      console.log(`WARN: Ignoring backup ${backupPath} bacause it is already backed up as ${existingFile}`)
       delete hashToPath[stripped]
     }
   })
